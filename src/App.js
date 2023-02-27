@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { useState } from "react";
 
 function App() {
+  const [boxes, setBoxes] = useState(["a", " b", "c"]);
+
+  const handleChange = (e, index) => {
+    const newBoxes = [...boxes];
+    newBoxes[index] = e.target.value;
+    setBoxes(newBoxes);
+  };
+
+  const handlePlusClick = (i) => {};
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="boxes">
+        {boxes.map((box, i) => (
+          <div key={i} className="box">
+            <input
+              onChange={(e) => handleChange(e, boxes.indexOf(box))}
+              value={box}
+              className="input-box"
+            ></input>
+            {i < box.length - 1 && (
+              <span onClick={() => handlePlusClick(i)}>+</span>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
