@@ -1,5 +1,5 @@
 import { useState } from "react";
-export default function Boxes() {
+export default function BoxComponent() {
   const [boxes, setBoxes] = useState(["a", " b", "c"]);
 
   const handleChange = (e, index) => {
