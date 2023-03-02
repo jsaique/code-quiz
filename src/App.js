@@ -1,36 +1,24 @@
 import logo from "./logo.svg";
-import "./App.css";
 import { useState } from "react";
+import React, { Suspense, lazy } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Boxes from "./components/Boxes";
 
 function App() {
-  const [boxes, setBoxes] = useState(["a", " b", "c"]);
+  // const nums = [0, 0, 1, 2, 2, 3];
 
-  const handleChange = (e, index) => {
-    const newBoxes = [...boxes];
-    newBoxes[index] = e.target.value;
-    setBoxes(newBoxes);
-  };
+  // const removeDuplicate = (nums) => {
+  //   insertIndex = 1;
+  //   for (let i = 1; i < nums.length; i++)
+  //     if (nums[i - 1] != nums[i]) {
+  //       nums[insertIndex] = nums[i];
+  //       insertIndex++;
+  //     }
+  //   return insertIndex;
+  // };
 
-  const handlePlusClick = (i) => {};
-
-  return (
-    <div className="App">
-      <div className="boxes">
-        {boxes.map((box, i) => (
-          <div key={i} className="box">
-            <input
-              onChange={(e) => handleChange(e, boxes.indexOf(box))}
-              value={box}
-              className="input-box"
-            ></input>
-            {i < box.length - 1 && (
-              <span onClick={() => handlePlusClick(i)}>+</span>
-            )}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+  return <h1>Hello</h1>;
 }
 
 export default App;
